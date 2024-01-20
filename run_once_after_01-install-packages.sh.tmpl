@@ -13,6 +13,18 @@ rm -rf git-delta-musl_0.16.5_amd64.deb* lsd-musl_1.0.0_amd64.deb* packages
 brew install $(cat packages) -y
 brew install lsd -y
 {{- end }}
+if command -v cargo &> /dev/null
+then
+  echo "🟡 Rust&Cargo is available."
+else
+  echo "🟡 installing Rust&Cargo."
+
+	sudo sh -c "$(curl -fsSL https://sh.rustup.rs)" -- --force
+
+  echo "✅ Rust&Cargo is installed."
+fi
+
+
 if command -v starship &> /dev/null
 then
   echo "🟡 starship prompt is available."
