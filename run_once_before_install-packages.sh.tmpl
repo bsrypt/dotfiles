@@ -4,8 +4,8 @@ sudo apt-add-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install software-properties-common
-sudo apt install $(cat packages.txt)
+sudo apt install $(cat remove_packages.txt)
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
-brew install $(cat packages.txt)
+brew install $(cat remove_packages.txt)
 {{ end -}}
