@@ -1,0 +1,28 @@
+[user]
+	name = Errorismx
+	email = bsry.nitipoom@gmail.com
+	signingkey = 1502F3B613D71E83
+[core]
+    pager = delta
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false 
+[interactive]
+    diffFilter = delta --color-only
+[color]
+	ui = true
+  diff = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = osxkeychain
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[commit]
+	gpgsign = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
