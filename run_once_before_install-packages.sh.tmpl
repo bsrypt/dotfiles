@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -13,4 +13,4 @@ rm -rf packages
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install $(cat packages)
-{{ end }}
+{{- end }}
