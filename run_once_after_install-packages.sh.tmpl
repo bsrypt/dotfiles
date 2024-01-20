@@ -18,7 +18,7 @@ else
 
   echo "✅ Homebrew is installed."
 fi
-brew install $(cat packages) -y
+brew install $(cat packages)
 brew install lsd -y
 {{- end }}
 if command -v cargo &> /dev/null
