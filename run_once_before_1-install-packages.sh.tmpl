@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt install software-properties-common -yq
-xargs -a packages sudo apt install -yq
+xargs -a create_once_before_0-packages sudo apt install -yq
 wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb
 sudo dpkg -i git-delta-musl_0.16.5_amd64.deb
 rm -rf git-delta-musl_0.16.5_amd64.deb* create_once_before_0-packages
