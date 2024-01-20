@@ -19,7 +19,7 @@ else
   echo "✅ Homebrew is installed."
 fi
 brew install $(cat packages)
-brew install lsd -y
+brew install lsd 
 {{- end }}
 if command -v cargo &> /dev/null
 then
@@ -53,4 +53,6 @@ else
   echo "$FISH_PATH" | sudo tee -a /etc/shells
   echo "✅ added fish to /etc/shells!"
 fi
+
+echo "Change Default shell"
 chsh -s "$FISH_PATH"
