@@ -1,9 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-add-repository ppa:fish-shell/release-3 -yq
+sudo add-apt-repository ppa:neovim-ppa/unstable -yq
 sudo apt update -yq
-sudo apt upgrade -yq
 sudo apt install software-properties-common -yq
 echo "installing packages"
 packages="$(awk '! /^ *(#|$)/' "packages")" 
