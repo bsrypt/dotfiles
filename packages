@@ -1,3 +1,7 @@
+git
+gnupg
+wget
+curl
 fish
 ripgrep
 bat
@@ -6,3 +10,5 @@ zoxide
 fzf
 neofetch
 neovim
+htop
+tldr
