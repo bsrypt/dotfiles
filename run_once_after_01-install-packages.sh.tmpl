@@ -1,5 +1,4 @@
 #!/bin/sh
-curl https://sh.rustup.rs -sSf | sh
 {{ if eq .chezmoi.os "linux" -}}
 sudo apt update -yq
 sudo apt install software-properties-common build-essential -yq
