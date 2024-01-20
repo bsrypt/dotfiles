@@ -1,14 +1,25 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!/bin/sh
+{{   if eq .chezmoi.osRelease.id "ubuntu" }}
+
+#!/usr/bin/env bash
+
+function install-from-package-list() {
+  packages="$(awk '! /^ *(#|$)/' "$1")" 
+  xargs -a <(echo "$packages") -r -- sudo apt-get install -yq
+}
+
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update -yq
-sudo apt install software-properties-common
-sudo apt install $(cat packages) -yq
-
+sudo apt upgrade -yq
+sudo apt install software-properties-common -yq
+install-from-package-list "packages"
 # git-delta
 wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb
 sudo dpkg -i git-delta-musl_0.16.5_amd64.deb
+rm -rf git-delta-musl_0.16.5_amd64.deb
+rm -rf packages
+{{   end }}
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install $(cat packages)
