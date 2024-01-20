@@ -5,6 +5,7 @@ curl
 fish
 ripgrep
 bat
+lsd
 zoxide
 fzf
 neofetch

@@ -1,20 +1,12 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 curl https://sh.rustup.rs -sSf | sh
-sudo apt-add-repository ppa:fish-shell/release-3 -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+{{ if eq .chezmoi.os "linux" -}}
+echo "Linux"
 sudo apt update -yq
 sudo apt install software-properties-common -yq
-echo "installing packages"
-xargs -a packages -r echo "⚪ installing packages:"
-xargs -a packages -r sudo apt-get install -yq
-wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl_0.16.5_amd64.deb
-sudo dpkg -i git-delta-musl_0.16.5_amd64.deb
-wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-musl_1.0.0_amd64.deb
-sudo dpkg -i lsd-musl_1.0.0_amd64.deb
-rm -rf git-delta-musl_0.16.5_amd64.deb* lsd-musl_1.0.0_amd64.deb* packages
 {{ else if eq .chezmoi.os "darwin" -}}
-#!/bin/sh
-brew install $(cat packages) -y
-brew install lsd -y
+echo "MacOs"
 {{- end }}
+brew install $(cat packages) -y
+rm -rf packages
