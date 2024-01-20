@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    neofetch
 end
 alias l='ls -l'
 alias la='ls -a'
