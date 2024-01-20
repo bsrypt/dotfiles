@@ -8,6 +8,16 @@ wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-musl_1.0.0_amd64
 sudo dpkg -i lsd-musl_1.0.0_amd64.deb
 rm -rf git-delta-musl_0.16.5_amd64.deb* lsd-musl_1.0.0_amd64.deb* packages
 {{ else if eq .chezmoi.os "darwin" -}}
+if command -v brew &> /dev/null
+then
+  echo "🟡 starship prompt is available."
+else
+  echo "🟡 installing starship prompt."
+
+	sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
+
+  echo "✅ starship prompt is installed."
+fi
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install $(cat packages) -y
 brew install lsd -y
