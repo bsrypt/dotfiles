@@ -1,5 +1,4 @@
 {{ if eq .chezmoi.os "linux" }}
-{{ if eq .chezmoi.osRelease.id "ubuntu" }}
 #!/bin/sh
 
 function install-from-package-list() {
@@ -18,7 +17,6 @@ wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta-musl
 sudo dpkg -i git-delta-musl_0.16.5_amd64.deb
 rm -rf git-delta-musl_0.16.5_amd64.deb
 rm -rf packages
-{{ end }}
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install $(cat packages)
