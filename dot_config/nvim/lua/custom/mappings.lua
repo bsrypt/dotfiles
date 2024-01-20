@@ -7,7 +7,7 @@ M.general = {
     ["<A-k>"] = {":m .-2 <CR>==", "move up the current line"},
     ["<A-j>"] = {":m .+1 <CR>==", "move down the current line"},
     ["<C-d>"] = {"<C-d>zz"},
-    ["<C-u>"] = {"<C-u>zz"},
+    ["<C-u>"] = {"<C-u>zz"}
   },
   i = {
     ["<A-k>"] = {"<Esc>:m .-2<CR>==gi", "move up the current line"},
@@ -15,8 +15,8 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent"},
-    ["<A-k>"] = {":m '<-2<CR>gv=gv", "move up the current line"}
-    ["<A-j>"] = {":m '>+1<CR>gv=gv", "move down the current line"},
+    ["<A-k>"] = {":m '<-2<CR>gv=gv", "move up the current line"},
+    ["<A-j>"] = {":m '>+1<CR>gv=gv", "move down the current line"}
   },
 }
 
