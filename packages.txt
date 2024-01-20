@@ -1,0 +1,8 @@
+fish
+ripgrep
+bat
+lsd
+zoxide
+fzf
+neofetch
+neovim
