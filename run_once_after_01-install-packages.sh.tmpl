@@ -13,3 +13,13 @@ rm -rf git-delta-musl_0.16.5_amd64.deb* lsd-musl_1.0.0_amd64.deb* packages
 brew install $(cat packages) -y
 brew install lsd -y
 {{- end }}
+if command -v starship &> /dev/null
+then
+  echo "🟡 starship prompt is available."
+else
+  echo "🟡 installing starship prompt."
+
+	sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
+
+  echo "✅ starship prompt is installed."
+fi
