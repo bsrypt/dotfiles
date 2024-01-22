@@ -10,11 +10,9 @@ end
 set -g fish_greeting
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/bin $PATH
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-alias ls=lsd
+alias l='lsd -la'
+alias lt='lsd --tree'
+alias ls='lsd -a'
 if command -v batcat &> /dev/null 
   alias bat=batcat
 end
