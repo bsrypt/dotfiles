@@ -108,7 +108,7 @@ config.colors = {
   ansi = {
     COLORS.base[12],
     COLORS.error[11],
-    COLORS.primary[11],
+    COLORS.base[8],
     COLORS.base[11],
     COLORS.primary[11],
     COLORS.base[11],
