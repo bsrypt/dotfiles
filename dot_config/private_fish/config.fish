@@ -15,7 +15,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias ls=lsd
-alias bat=batcat
+if command -v batcat &> /dev/null 
+  alias bat=batcat
+end
 alias cat=bat
 starship init fish | source
 zoxide init fish | source
