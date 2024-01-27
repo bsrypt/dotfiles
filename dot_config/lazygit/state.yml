@@ -1,0 +1,12 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/errorism/dcode-door/socket
+- /home/errorism/.local/share/chezmoi
+- /mnt/d/ABAC/dcode/webapp
+startuppopupversion: 5
+customcommandshistory:
+- git rm -r --cached
+- q
+- ""
+hidecommandlog: false
+ignorewhitespaceindiffview: false
