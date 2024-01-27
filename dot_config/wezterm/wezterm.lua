@@ -3,6 +3,18 @@ local wezterm = require 'wezterm'
 local COLORS = require 'theme'
 -- This table will hold the configuration.
 local config = {}
+config.keys = {
+  {
+    key = ">",
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+  },
+  {
+    key = "?",
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+  },
+}
 --wezterm.on('window-config-reloaded', function(window, pane)
 function detect_host_os()
   -- package.config:sub(1,1) returns '\' for windows and '/' for *nix.
@@ -68,33 +80,32 @@ config.tab_bar_style = {
 	window_hide = wezterm.format({
 		{ Foreground = { Color = COLORS.success[9] } },
 		{ Background= { Color=COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost .. ""  },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost .. ""  },
 	}),
 	window_hide_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.success[10] } },
 		{ Background= { Color=COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .. "" },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .. "" },
 	}),
 	window_maximize = wezterm.format({
 		{ Foreground = { Color = COLORS.danger[9] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost .. "" },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost .. "" },
 	}),
   window_maximize_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.danger[10] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .."" },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .."" },
 	}),
-	
 	window_close = wezterm.format({
 		{ Foreground = { Color = COLORS.error[9] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost .. " " },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost .. " " },
 	}),
 	window_close_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.error[10] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .. " " },
+		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .. " " },
 	}),
 }
 config.window_padding = {
@@ -126,7 +137,7 @@ config.colors = {
     COLORS.base[12]
   },
   foreground = COLORS.base[11],
-  background = COLORS.base[2],
+  background = COLORS.base[1],
 
   cursor_bg = COLORS.primary[6],
   cursor_fg = COLORS.primary[12],

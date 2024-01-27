@@ -1,5 +1,14 @@
 local M = {}
 
+M.copilot = {
+  suggestion = {
+    enable = false,
+  },
+  panel = {
+    enable = false,
+  }
+}
+
 M.treesitter = {
   ensure_installed = {
     "vim",

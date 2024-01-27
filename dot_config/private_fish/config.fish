@@ -1,19 +1,21 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    clear
 end
+clear
 export GPG_TTY=$(tty)
 export EDITOR=nvim
 export winhost=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 if test -z "$(grep -P '[[:space:]]winhost' /etc/hosts)"
   printf '%s\t%s\n' "$winhost" "winhost" | sudo tee -a "/etc/hosts"
+  clear
 end
 set -g fish_greeting
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/bin $PATH
-alias l='lsd -la'
+alias l='lsd -l'
+alias la='lsd -a'
 alias lt='lsd --tree'
-alias ls='lsd -a'
+alias ls='lsd'
 if command -v batcat &> /dev/null 
   alias bat=batcat
 end
