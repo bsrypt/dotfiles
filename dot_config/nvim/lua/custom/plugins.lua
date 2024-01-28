@@ -116,6 +116,11 @@ local plugins = {
       require("dim").setup {}
     end,
   },
+  {
+    "overextended/fivem-lls-addon",
+  },
+
+
  -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
