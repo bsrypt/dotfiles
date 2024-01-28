@@ -108,7 +108,14 @@ local plugins = {
     }
     require("core.utils").load_mappings "trouble"
   end,
-}
+},
+{
+    "0oAstro/dim.lua",
+    event = "LspAttach",
+    config = function()
+      require("dim").setup {}
+    end,
+  },
  -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
