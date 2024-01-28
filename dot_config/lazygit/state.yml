@@ -1,12 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/errorism/.config/nvim
 - /home/errorism/dcode-door/socket
 - /home/errorism/.local/share/chezmoi
 - /mnt/d/ABAC/dcode/webapp
 startuppopupversion: 5
 customcommandshistory:
-- git rm -r --cached
-- q
 - ""
+- q
+- git rm -r --cached
 hidecommandlog: false
 ignorewhitespaceindiffview: false

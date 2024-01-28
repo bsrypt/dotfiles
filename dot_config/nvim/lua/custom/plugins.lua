@@ -73,7 +73,43 @@ local plugins = {
       },
     },
   },
-  -- To make a plugin not be loaded
+  {
+    "smoka7/hop.nvim",
+    cmd = { "HopWord", "HopLine", "HopLineStart", "HopWordCurrentLine" },
+    opts = { keys = "etovxqpdygfblzhckisuran" },
+    init = function()
+      require("core.mappings").hop = {
+        n = {
+          ["<leader><leader>w"] = { "<CMD> HopWord <CR>", "Hint all words" },
+          ["<leader><leader>t"] = { "<CMD> HopNodes <CR>", "Hint Tree" },
+          ["<leader><leader>c"] = { "<CMD> HopLineStart<CR>", "Hint Columns" },
+          ["<leader><leader>l"] = { "<CMD> HopWordCurrentLine<CR>", "Hint Line" },
+        },
+      }
+
+      require("core.utils").load_mappings "hop"
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+  },
+{
+  "folke/trouble.nvim",
+  cmd = { "Trouble", "TroubleToggle", "TodoTrouble" },
+  opts = {},
+  init = function()
+    require("core.mappings").trouble = {
+      plugin = true,
+      n = {
+        ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "Toggle diagnostics" },
+        ["<leader>td"] = { "<CMD>TodoTrouble keywords=TODO,FIX,FIXME,BUG,TEST,NOTE<CR>", "Todo/Fix/Fixme" },
+      },
+    }
+    require("core.utils").load_mappings "trouble"
+  end,
+}
+ -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
   --   enabled = false

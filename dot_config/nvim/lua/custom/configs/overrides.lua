@@ -2,7 +2,7 @@ local M = {}
 
 M.copilot = {
   suggestion = {
-    enable = false,
+    enable = true,
   },
   panel = {
     enable = false,
