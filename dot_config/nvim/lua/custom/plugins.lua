@@ -119,7 +119,9 @@ local plugins = {
   {
     "overextended/fivem-lls-addon",
   },
-
+  {
+    "overextended/ox_lib",
+  }
 
  -- To make a plugin not be loaded
   -- {
