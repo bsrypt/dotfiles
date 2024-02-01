@@ -64,6 +64,7 @@ config.integrated_title_button_style = "Gnome"
 config.use_fancy_tab_bar = false
 config.window_background_opacity = 1.0
 config.win32_system_backdrop = 'Mica'
+config.tab_bar_at_bottom = true
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
@@ -80,32 +81,32 @@ config.tab_bar_style = {
 	window_hide = wezterm.format({
 		{ Foreground = { Color = COLORS.success[9] } },
 		{ Background= { Color=COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost .. ""  },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost .. ""  },
 	}),
 	window_hide_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.success[10] } },
 		{ Background= { Color=COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .. "" },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .. "" },
 	}),
 	window_maximize = wezterm.format({
 		{ Foreground = { Color = COLORS.danger[9] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost .. "" },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost .. "" },
 	}),
   window_maximize_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.danger[10] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .."" },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .."" },
 	}),
 	window_close = wezterm.format({
 		{ Foreground = { Color = COLORS.error[9] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost .. " " },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost .. " " },
 	}),
 	window_close_hover = wezterm.format({
 		{ Foreground = { Color = COLORS.error[10] } },
 		{ Background= { Color= COLORS.base[1]} },
-		{ Text = "" .. wezterm.nerdfonts.md_ghost_outline .. " " },
+		{ Text = " " .. wezterm.nerdfonts.md_ghost_outline .. " " },
 	}),
 }
 config.window_padding = {
