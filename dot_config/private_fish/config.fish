@@ -12,10 +12,14 @@ end
 set -g fish_greeting
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/bin $PATH
+alias vim=nvim
 alias l='lsd -l'
 alias la='lsd -a'
 alias lt='lsd --tree'
 alias ls='lsd'
+if command -v wezterm.exe &> /dev/null 
+  alias wezterm=wezterm.exe
+end
 if command -v batcat &> /dev/null 
   alias bat=batcat
 end

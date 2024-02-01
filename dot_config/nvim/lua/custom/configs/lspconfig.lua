@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd" }
+local servers = { "html", "cssls", "tsserver", "clangd" , "svelte"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -20,6 +20,10 @@ require("lspconfig").lua_ls.setup {
     local found = false
     if vim.fn.filereadable(current_dir .. "/fxmanifest.lua") == 1 then
       found = true
+      local content = vim.fn.readfile(current_dir .. "/fxmanifest.lua")
+      if vim.fn.matchfuzzy(content,"ox_lib")[1] then
+        client.config.settings.Lua.workspace.library[vim.fn.stdpath "data" .. "/lazy/ox_lib"] = true
+      end
     end
     client.config.settings.Lua.workspace.library[vim.fn.stdpath "data" .. "/lazy/fivem-lls-addon/library"] = found
     on_attach(client, buf)

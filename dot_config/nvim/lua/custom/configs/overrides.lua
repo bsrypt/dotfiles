@@ -17,6 +17,7 @@ M.treesitter = {
     "css",
     "javascript",
     "typescript",
+    "svelte",
     "tsx",
     "c",
     "markdown",
@@ -43,6 +44,7 @@ M.mason = {
     "deno",
     "prettier",
 
+    'svelte-language-server',
     -- c/cpp stuff
     "clangd",
     "clang-format",
