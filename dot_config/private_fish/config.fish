@@ -5,7 +5,7 @@ clear
 export GPG_TTY=$(tty)
 export EDITOR=nvim
 export winhost=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-if test -z "$(grep -P '[[:space:]]winhost' /etc/hosts)"
+if test -z "$(rg -P '[[:space:]]winhost' /etc/hosts)"
   printf '%s\t%s\n' "$winhost" "winhost" | sudo tee -a "/etc/hosts"
   clear
 end
