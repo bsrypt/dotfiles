@@ -2,6 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 clear
+fish_add_path "$HOME/development/flutter/bin"
+export CHROME_EXECUTABLE="/Applications/Arc.app/Contents/MacOS/Arc"
 export GPG_TTY=$(tty)
 export EDITOR=nvim
 export winhost=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
