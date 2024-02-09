@@ -59,7 +59,7 @@ config.font = wezterm.font_with_fallback {
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.cell_width = 1.0
 config.font_size = FONT
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_button_style = "Gnome"
 config.use_fancy_tab_bar = false
 config.window_background_opacity = 1.0
