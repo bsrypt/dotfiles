@@ -115,84 +115,88 @@ config.window_padding = {
   bottom = 0,
 }
 
+config.color_scheme = 'rebecca'
+
 config.colors = {
-  ansi = {
-    COLORS.base[12],
-    COLORS.error[11],
-    COLORS.base[8],
-    COLORS.base[11],
-    COLORS.primary[11],
-    COLORS.base[11],
-    COLORS.success[11],
-    COLORS.base[12]
-  },
-  brights = {
-    COLORS.base[8],
-    COLORS.base[11],
-    COLORS.base[11],
-    COLORS.primary[11],
-    COLORS.info[11],
-    COLORS.success[11],
-    COLORS.info[11],
-    COLORS.base[12]
-  },
-  foreground = COLORS.base[11],
+    -- foreground = COLORS.base[11],
   background = COLORS.base[1],
-
-  cursor_bg = COLORS.primary[6],
-  cursor_fg = COLORS.primary[12],
-  cursor_border = COLORS.primary[8],
-
-  selection_fg = COLORS.primary[11],
-  selection_bg = COLORS.primary[3],
-
-  scrollbar_thumb = COLORS.base[3],
-  split = COLORS.base[6],
-
   tab_bar = {
-    background = COLORS.base[1],
-    active_tab = {
-      bg_color = COLORS.primary[6],
-      fg_color = COLORS.primary[11],
-      intensity = "Normal",
-      underline = "None",
-      italic = false,
-      strikethrough = false
-    },
-    inactive_tab = {
-      bg_color = COLORS.base[1],
-      fg_color = COLORS.base[11],
-      intensity = "Normal",
-      underline = "None",
-      italic = false,
-      strikethrough = false
-    },
-    inactive_tab_hover = {
-      bg_color = COLORS.base[5],
-      fg_color = COLORS.base[12],
-      intensity = "Normal",
-      underline = "None",
-      italic = false,
-      strikethrough = false
-    },
-    new_tab = {
-      bg_color = COLORS.base[4],
-      fg_color = COLORS.base[11],
-      intensity = "Normal",
-      underline = "None",
-      italic = false,
-      strikethrough = false
-    },
-    new_tab_hover = {
-      bg_color = COLORS.base[5],
-      fg_color = COLORS.base[12],
-      intensity = "Normal",
-      underline = "None",
-      italic = false,
-      strikethrough = false
-    }
-  }
+        background = COLORS.base[1],
+        active_tab = {
+          bg_color = COLORS.primary[6],
+          fg_color = COLORS.primary[11],
+          intensity = "Normal",
+          underline = "None",
+          italic = false,
+          strikethrough = false
+        },
+        inactive_tab = {
+          bg_color = COLORS.base[1],
+          fg_color = COLORS.base[11],
+          intensity = "Normal",
+          underline = "None",
+          italic = false,
+          strikethrough = false
+        },
+        inactive_tab_hover = {
+          bg_color = COLORS.base[5],
+          fg_color = COLORS.base[12],
+          intensity = "Normal",
+          underline = "None",
+          italic = false,
+          strikethrough = false
+        },
+        new_tab = {
+          bg_color = COLORS.base[4],
+          fg_color = COLORS.base[11],
+          intensity = "Normal",
+          underline = "None",
+          italic = false,
+          strikethrough = false
+        },
+        new_tab_hover = {
+          bg_color = COLORS.base[5],
+          fg_color = COLORS.base[12],
+          intensity = "Normal",
+          underline = "None",
+          italic = false,
+          strikethrough = false
+        }
+      }
 }
+--   ansi = {
+--     COLORS.base[12],
+--     COLORS.error[11],
+--     COLORS.base[8],
+--     COLORS.base[11],
+--     COLORS.primary[11],
+--     COLORS.base[11],
+--     COLORS.success[11],
+--     COLORS.base[12]
+--   },
+--   brights = {
+--     COLORS.base[8],
+--     COLORS.base[11],
+--     COLORS.base[11],
+--     COLORS.primary[11],
+--     COLORS.info[11],
+--     COLORS.success[11],
+--     COLORS.info[11],
+--     COLORS.base[12]
+--   },
+--   foreground = COLORS.base[11],
+--   background = COLORS.base[1],
 
-config.default_prog = { 'fish' }
+--   cursor_bg = COLORS.primary[6],
+--   cursor_fg = COLORS.primary[12],
+--   cursor_border = COLORS.primary[8],
+
+--   selection_fg = COLORS.primary[11],
+--   selection_bg = COLORS.primary[3],
+
+--   scrollbar_thumb = COLORS.base[3],
+--   split = COLORS.base[6],
+
+--
+-- }config.default_prog = { 'fish' }
 return config
