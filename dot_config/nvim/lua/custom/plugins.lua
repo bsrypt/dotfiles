@@ -1,5 +1,4 @@
 local overrides = require "custom.configs.overrides"
-
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -64,12 +63,12 @@ local plugins = {
     },
     opts = {
       sources = {
-        { name = "nvim_lsp", },
-        { name = "luasnip",  },
-        { name = "buffer",   },
-        { name = "nvim_lua", },
-        { name = "path",     },
-        { name = "copilot",  },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "copilot" },
       },
     },
   },
@@ -94,22 +93,25 @@ local plugins = {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
   },
-{
-  "folke/trouble.nvim",
-  cmd = { "Trouble", "TroubleToggle", "TodoTrouble" },
-  opts = {},
-  init = function()
-    require("core.mappings").trouble = {
-      plugin = true,
-      n = {
-        ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "Toggle diagnostics" },
-        ["<leader>td"] = { "<CMD>TodoTrouble keywords=TODO,FIX,FIXME,BUG,TEST,NOTE<CR>", "Todo/Fix/Fixme" },
-      },
-    }
-    require("core.utils").load_mappings "trouble"
-  end,
-},
-{
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = { "Trouble", "TroubleToggle", "TodoTrouble" },
+    opts = {},
+    init = function()
+      require("core.mappings").trouble = {
+        plugin = true,
+        n = {
+          ["<leader>tt"] = { "<CMD>TroubleToggle<CR>", "Toggle diagnostics" },
+          ["<leader>tl"] = { "<CMD>TroubleToggle loclist<CR>", "Current File diagnostics" },
+          ["<leader>tw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace diagnostics" },
+          ["<leader>tq"] = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix diagnostics" },
+        },
+      }
+      require("core.utils").load_mappings "trouble"
+    end,
+  },
+  {
     "0oAstro/dim.lua",
     event = "LspAttach",
     config = function()
@@ -122,28 +124,28 @@ local plugins = {
   {
     "overextended/ox_lib",
   },
-{
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-},
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
   {
     "NvChad/nvim-colorizer.lua",
-    enabled = false
+    enabled = true,
   },
 
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  {
-    "mg979/vim-visual-multi",
-    lazy = false,
-  }
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- },
 }
 
 return plugins
