@@ -139,9 +139,50 @@ local plugins = {
     enabled = true,
   },
   {
-    "chikko80/error-lens.nvim",
+    "utilyre/barbecue.nvim",
     event = "LspAttach",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
     opts = {},
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "debugloop/telescope-undo.nvim",
+        init = function()
+          require("core.mappings").undo = {
+            plugin = true,
+            n = {
+              ["<leader>fu"] = { "<CMD>Telescope undo<CR>", "Find undo" },
+            },
+          }
+
+          require("core.utils").load_mappings "undo"
+          require("telescope").load_extension "undo"
+        end,
+      },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+    },
+    opts = {
+      extensions_list = { "fzf" },
+    },
+  },
+  {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+    init = function()
+      vim.g.code_action_menu_show_details = true
+      vim.g.code_action_menu_show_diff = true
+      vim.g.code_action_menu_show_action_kind = true
+    end,
+    config = function()
+      dofile(vim.g.base46_cache .. "git")
+    end,
   },
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`

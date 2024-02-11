@@ -20,6 +20,10 @@ M.general = {
   },
 }
 
+
+M.lspconfig = {
+  n = {["<leader>ca"] = { "<CMD>CodeActionMenu<CR>", "Code Action Menu" }}
+}
 -- more keybinds!
 
 return M

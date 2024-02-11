@@ -1,5 +1,4 @@
 local M = {}
-
 M.copilot = {
   suggestion = {
     enable = false,
