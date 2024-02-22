@@ -3,6 +3,21 @@ local wezterm = require 'wezterm'
 local COLORS = require 'theme'
 -- This table will hold the configuration.
 local config = {}
+wezterm.on('gui-startup', function(cmd)
+  local screenInfo = wezterm.gui.screens()
+
+  local padSize = 60
+  local screenWidth = screenInfo["virtual_width"]
+  local screenHeight = screenInfo["virtual_height"]
+
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {
+    workspace = 'main',
+  })
+  if window ~= nil then
+    window:gui_window():set_position(padSize, padSize+40)
+    window:gui_window():set_inner_size(screenWidth - (padSize * 2), screenHeight - (padSize * 2) - 48)
+  end
+end)
 config.keys = {
   {
     key = ">",
