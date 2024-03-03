@@ -1,9 +1,6 @@
 local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
-
-  -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -96,7 +93,7 @@ local plugins = {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = { "Trouble", "TroubleToggle", "TodoTrouble" },
+    cmd = { "Trouble", "TroubleToggle"  },
     opts = {},
     init = function()
       require("core.mappings").trouble = {
@@ -123,16 +120,6 @@ local plugins = {
   },
   {
     "overextended/ox_lib",
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
   },
   {
     "NvChad/nvim-colorizer.lua",
@@ -184,6 +171,52 @@ local plugins = {
       dofile(vim.g.base46_cache .. "git")
     end,
   },
+  {
+    "echasnovski/mini.nvim",
+    event = "VeryLazy",
+    config = function()
+      -- Main textobject prefixes
+      -- around = 'a',
+      -- inside = 'i',
+
+      -- Next/last textobjects
+      -- around_next = 'an',
+      -- inside_next = 'in',
+      -- around_last = 'al',
+      -- inside_last = 'il',
+
+      -- Move cursor to corresponding edge of `a` textobject
+      -- goto_left = 'g[',
+      -- goto_right = 'g]',
+      require("mini.ai").setup()
+      -- Add surrounding with sa (in visual mode or on motion).
+      -- Delete surrounding with sd.
+      -- Replace surrounding with sr.
+      -- Find surrounding with sf or sF (move cursor right or left).
+      -- Highlight surrounding with sh.
+      require("mini.surround").setup()
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+
+    init = function()
+      require("core.mappings").todocomment = {
+        plugin = true,
+        n = {
+          ["<leader>td"] = { "<CMD>TodoTelescope<CR>", "Todo/Fix/Fixme" },
+        },
+      }
+      require("core.utils").load_mappings "todocomment"
+    end,
+  },
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
@@ -192,5 +225,4 @@ local plugins = {
   --   lazy = false,
   -- },
 }
-
 return plugins
