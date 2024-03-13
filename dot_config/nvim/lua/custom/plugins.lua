@@ -150,13 +150,16 @@ local plugins = {
           require("telescope").load_extension "undo"
         end,
       },
+
+      { 'nvim-tree/nvim-web-devicons', enabled = true },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
       },
     },
     opts = {
-      extensions_list = { "fzf" },
+      extensions_list = { "fzf", "ui-select" },
     },
   },
   {

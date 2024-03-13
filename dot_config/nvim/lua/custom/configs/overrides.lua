@@ -37,8 +37,9 @@ M.mason = {
     "stylua",
 
     -- web dev stuff
-    "css-lsp",
+    "emmet-language-server",
     "html-lsp",
+    "css-lsp",
     "typescript-language-server",
     "deno",
     "prettier",
