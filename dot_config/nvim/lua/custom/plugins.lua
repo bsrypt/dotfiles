@@ -2,6 +2,10 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
   {
+    "windwp/nvim-autopairs",
+    enabled = false,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
@@ -93,7 +97,7 @@ local plugins = {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = { "Trouble", "TroubleToggle"  },
+    cmd = { "Trouble", "TroubleToggle" },
     opts = {},
     init = function()
       require("core.mappings").trouble = {
@@ -151,8 +155,8 @@ local plugins = {
         end,
       },
 
-      { 'nvim-tree/nvim-web-devicons', enabled = true },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
+      { "nvim-tree/nvim-web-devicons",            enabled = true },
+      { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
