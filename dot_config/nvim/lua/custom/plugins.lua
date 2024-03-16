@@ -1,6 +1,12 @@
 local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
+  
+  {
+    "nvim-tree/nvim-tree.lua",
+    enable = false,
+    -- opts = overrides.nvimtree,
+  },
   {
     "windwp/nvim-autopairs",
     enabled = false,
@@ -33,10 +39,6 @@ local plugins = {
     opts = overrides.treesitter,
   },
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
 
   -- Install a plugin
   {
@@ -80,20 +82,26 @@ local plugins = {
     init = function()
       require("core.mappings").hop = {
         n = {
-          ["<leader><leader>w"] = { "<CMD> HopWord <CR>", "Hint all words" },
-          ["<leader><leader>t"] = { "<CMD> HopNodes <CR>", "Hint Tree" },
-          ["<leader><leader>c"] = { "<CMD> HopLineStart<CR>", "Hint Columns" },
-          ["<leader><leader>l"] = { "<CMD> HopWordCurrentLine<CR>", "Hint Line" },
+          ["<leader>j"] = { "<CMD> HopWord <CR>", "Hint all words" },
         },
       }
 
       require("core.utils").load_mappings "hop"
     end,
   },
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = "LazyGit",
+{
+  "NeogitOrg/neogit",
+  cmd = {"Neogit"},
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+
+    -- Only one of these is needed, not both.
+    "nvim-telescope/telescope.nvim", -- optional
+    "ibhagwan/fzf-lua",              -- optional
   },
+  config = true
+},
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -165,18 +173,6 @@ local plugins = {
     opts = {
       extensions_list = { "fzf", "ui-select" },
     },
-  },
-  {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-    init = function()
-      vim.g.code_action_menu_show_details = true
-      vim.g.code_action_menu_show_diff = true
-      vim.g.code_action_menu_show_action_kind = true
-    end,
-    config = function()
-      dofile(vim.g.base46_cache .. "git")
-    end,
   },
   {
     "echasnovski/mini.nvim",
