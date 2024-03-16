@@ -2,10 +2,9 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
   
-  {
-    "nvim-tree/nvim-tree.lua",
-    enable = false,
-    -- opts = overrides.nvimtree,
+  { "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" , "NvimTreeOpen"},
+    opts = overrides.nvimtree,
   },
   {
     "windwp/nvim-autopairs",
