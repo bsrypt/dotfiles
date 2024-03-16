@@ -3,6 +3,7 @@ local M = {}
 
 M.general = {
   n = {
+    ["<leader>gn"] = { "<cmd> Neogit <CR>", "Open [g]it[n]eo"},
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<A-k>"] = { ":m .-2 <CR>==", "move up the current line" },
     ["<A-j>"] = { ":m .+1 <CR>==", "move down the current line" },
