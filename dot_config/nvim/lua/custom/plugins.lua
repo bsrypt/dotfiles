@@ -1,9 +1,10 @@
 local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
-  
-  { "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" , "NvimTreeOpen"},
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
     opts = overrides.nvimtree,
   },
   {
@@ -37,7 +38,6 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-
 
   -- Install a plugin
   {
@@ -88,19 +88,18 @@ local plugins = {
       require("core.utils").load_mappings "hop"
     end,
   },
-{
-  "NeogitOrg/neogit",
-  cmd = {"Neogit"},
-  dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
+  {
+    "NeogitOrg/neogit",
+    cmd = { "Neogit" },
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
 
-    -- Only one of these is needed, not both.
-    "nvim-telescope/telescope.nvim", -- optional
-    "ibhagwan/fzf-lua",              -- optional
-  },
-  config = true
-},
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
+    },
+    config = true  },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -162,7 +161,7 @@ local plugins = {
         end,
       },
 
-      { "nvim-tree/nvim-web-devicons",            enabled = true },
+      { "nvim-tree/nvim-web-devicons", enabled = true },
       { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
