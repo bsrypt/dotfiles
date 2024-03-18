@@ -11,7 +11,11 @@ zstyle ':z4h:' auto-update      'no'
 zstyle ':z4h:' auto-update-days '28'
 
 # Keyboard type: 'mac' or 'pc'.
+{{ if eq .chezmoi.os "darwin" }}
+zstyle ':z4h:bindkey' keyboard  'mac'
+{{ else if eq .chezmoi.os "linux" }}
 zstyle ':z4h:bindkey' keyboard  'pc'
+{{ end }}
 
 # Don't start tmux.
 zstyle ':z4h:' start-tmux       no
